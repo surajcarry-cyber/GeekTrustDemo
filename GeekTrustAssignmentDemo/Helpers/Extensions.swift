@@ -14,7 +14,7 @@ extension UIImageView {
 
     func setImage(
         from urlString: String?,
-        placeholder: UIImage? = UIImage(named: "logo")
+        placeholder: UIImage? = UIImage(named: "placeholder")
     ) {
         // Set placeholder immediately
         DispatchQueue.main.async {

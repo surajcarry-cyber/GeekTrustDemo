@@ -33,7 +33,7 @@ class ProductCell: UITableViewCell {
         
         self.productImage.setImage(
             from: product.image,
-            placeholder: UIImage(named: "logo")
+            placeholder: UIImage(named: "placeholder")
         )
     }
 
