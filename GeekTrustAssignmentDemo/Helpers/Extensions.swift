@@ -52,3 +52,38 @@ extension UIImageView {
         }.resume()
     }
 }
+
+extension UIView {
+
+    /// Apply rounded corners (all or specific) with optional shadow
+    func applyStyle(
+        cornerRadius: CGFloat = 12,
+        corners: CACornerMask = [
+            .layerMinXMinYCorner,
+            .layerMaxXMinYCorner,
+            .layerMinXMaxYCorner,
+            .layerMaxXMaxYCorner
+        ],
+        shadowColor: UIColor = .gray,
+        shadowOpacity: Float = 0.15,
+        shadowOffset: CGSize = CGSize(width: 0, height: 4),
+        shadowRadius: CGFloat = 2
+    ) {
+
+        // Corner radius
+        layer.cornerRadius = cornerRadius
+        layer.maskedCorners = corners
+        layer.masksToBounds = false
+
+        // Shadow
+        layer.shadowColor = shadowColor.cgColor
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowOffset = shadowOffset
+        layer.shadowRadius = shadowRadius
+    }
+
+    /// Remove shadow (useful for reuse)
+    func removeShadow() {
+        layer.shadowOpacity = 0
+    }
+}

@@ -70,18 +70,8 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
         }
 
         let product = viewModel.product(at: indexPath.row)
-
-        cell.titleLbl.text = product.title
-        cell.descriptionLbl.text = product.description
-        cell.categoryLbl.text = product.category
-        cell.priceLbl.text = "$\(product.price)"
-
-        // Lazy image loading with placeholder
-        cell.productImage.setImage(
-            from: product.image,
-            placeholder: UIImage(named: "logo")
-        )
-
+        cell.cellSetup(product: product)
+        
         return cell
     }
 

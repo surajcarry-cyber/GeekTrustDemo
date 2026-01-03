@@ -17,7 +17,6 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -25,6 +24,7 @@ class ProductDetailViewController: UIViewController {
     
     //MARK: - Private Methods
     private func setupUI() {
+        self.navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .white
         titleLbl.text = product?.title ?? ""
         priceLbl.text = " $ \(product?.price ?? 0.0) "
@@ -33,6 +33,10 @@ class ProductDetailViewController: UIViewController {
             from: product?.image ?? "",
             placeholder: UIImage(named: "logo")
         )
+        productImage.applyStyle(cornerRadius: 32.0,corners: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner])
     }
     
+    @IBAction func backAction(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

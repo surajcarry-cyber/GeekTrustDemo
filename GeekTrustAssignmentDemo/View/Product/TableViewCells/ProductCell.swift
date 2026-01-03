@@ -21,16 +21,20 @@ class ProductCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         productImage.layer.cornerRadius = 10
-        productCellView.layer.cornerRadius = 10 
-        
-        
-        // Initialization code
     }
+ 
+    func cellSetup(product: Product) {
+        self.titleLbl.text = product.title
+        self.descriptionLbl.text = product.description
+        self.categoryLbl.text = product.category
+        self.priceLbl.text = "$\(product.price)"
 
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
+        self.productCellView.applyStyle(cornerRadius: 12)
+        
+        self.productImage.setImage(
+            from: product.image,
+            placeholder: UIImage(named: "logo")
+        )
+    }
 
 }
